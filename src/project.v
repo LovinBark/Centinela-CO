@@ -1,5 +1,5 @@
 /*
- * Centinela-CO: dual-channel fail-safe decision core for gas space heaters.
+ * Centinela-CO: dual-channel fail-safe decision core for gas space heaters
  *
  * Reads a carbon-monoxide concentration that an external front end has already
  * digitised (8 bits, 2 ppm per LSB), integrates the dose above a 40 ppm
