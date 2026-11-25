@@ -1,11 +1,11 @@
 # Tiny Tapeout project information
 project:
-  title:        "Centinela-CO"      # Project title
-  author:       "David Tellez"      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Centinela-CO"      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  title:        "Centinela-CO: fail-safe carbon monoxide dose monitor for gas heaters"
+  author:       "Equipo UTCJ - IEEE Open Silicon Bootcamp 2026"
+  discord:      ""
+  description:  "Two-channel CO dose integrator that withdraws a dynamic gas-valve permission inside the UL 2034 time windows"
+  language:     "Verilog"
+  clock_hz:     32768
 
   # How many tiles your design occupies? A single tile is about 340x160 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
@@ -23,34 +23,34 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "A0"
-  ui[1]: "A1"
-  ui[2]: "A2"
-  ui[3]: "A3"
-  ui[4]: "A4"
-  ui[5]: "A5"
-  ui[6]: "A6"
-  ui[7]: "A7"
+  ui[0]: "CO[0] (2 ppm)"
+  ui[1]: "CO[1] (4 ppm)"
+  ui[2]: "CO[2] (8 ppm)"
+  ui[3]: "CO[3] (16 ppm)"
+  ui[4]: "CO[4] (32 ppm)"
+  ui[5]: "CO[5] (64 ppm)"
+  ui[6]: "CO[6] (128 ppm)"
+  ui[7]: "CO[7] (256 ppm)"
 
   # Outputs
-  uo[0]: "SUM0"
-  uo[1]: "SUM1"
-  uo[2]: "SUM2"
-  uo[3]: "SUM3"
-  uo[4]: "SUM4"
-  uo[5]: "SUM5"
-  uo[6]: "SUM6"
-  uo[7]: "SUM7"
+  uo[0]: "SEG_A"
+  uo[1]: "SEG_B"
+  uo[2]: "SEG_C"
+  uo[3]: "SEG_D"
+  uo[4]: "SEG_E"
+  uo[5]: "SEG_F"
+  uo[6]: "SEG_G"
+  uo[7]: "DP (valve permitted)"
 
   # Bidirectional pins
-  uio[0]: "B0"
-  uio[1]: "B1"
-  uio[2]: "B2"
-  uio[3]: "B3"
-  uio[4]: "B4"
-  uio[5]: "B5"
-  uio[6]: "B6"
-  uio[7]: "B7"
+  uio[0]: "STROBE (in): one pulse per sensor sample"
+  uio[1]: "REARM (in): manual re-arm button"
+  uio[2]: "DEMO (in): 1 = internal sampling, time x64"
+  uio[3]: "CHAIN_OK (in): external safety chain closed"
+  uio[4]: "VALVE_A (out): dynamic permission, phase A"
+  uio[5]: "VALVE_B (out): dynamic permission, phase B"
+  uio[6]: "ALARM (out)"
+  uio[7]: "FAULT (out)"
 
 # Do not change!
 yaml_version: 6
